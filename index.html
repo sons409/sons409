@@ -85,6 +85,46 @@
   .format-desc { font-size: 13px; color: var(--grey); line-height: 1.6; font-weight: 400; }
   .format-tag { display: inline-block; margin-top: 12px; background: var(--gold-light); border: 1px solid var(--gold-border); padding: 3px 10px; font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); }
 
+  /* VIDEO RESPONSIVE SYSTEM */
+  .video-thumb-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 9/16;
+    background: #000;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  .video-thumb-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .video-play-btn {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,0.3);
+    z-index: 5;
+    transition: background 0.2s;
+  }
+  .video-play-btn:hover { background: rgba(0,0,0,0.5); }
+  .video-play-btn svg { width: 56px; height: 56px; filter: drop-shadow(0 2px 8px rgba(0,0,0,0.5)); }
+  /* Desktop: show iframe, hide thumbnail */
+  @media (min-width: 961px) {
+    .video-thumb-wrap { display: none; }
+    .case-video-wrap { display: block; }
+    .support-video-wrap { display: block; }
+  }
+  /* Mobile: hide iframe, show thumbnail */
+  @media (max-width: 960px) {
+    .case-video-wrap { display: none; }
+    .support-video-wrap { display: none; }
+    .video-thumb-wrap { display: block; }
+  }
+
   /* CASE STUDIES */
   .case-section { background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 88px 0; }
   .case-inner { max-width: 1100px; margin: 0 auto; padding: 0 80px; }
@@ -154,8 +194,11 @@
     .hero, .section, .formats-section, .analytics-section { padding: 48px 28px; }
     .hero { grid-template-columns: 1fr; gap: 40px; }
     .hero-photo-col { order: -1; }
-    .stats-strip, .reach-strip { grid-template-columns: 1fr 1fr; }
-    .stat-block { border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .reach-strip { grid-template-columns: 1fr 1fr; }
+    .stats-strip { grid-template-columns: 1fr; }
+    .stat-block { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); padding: 32px 28px; overflow: hidden; }
+    .stat-main { font-size: 40px; }
+    .stat-tag { font-size: 9px; letter-spacing: 1px; display: block; width: 100%; }
     .demo-inner, .case-inner { padding: 0 28px; }
     .demo-grid { grid-template-columns: 1fr; gap: 32px; }
     .formats-grid { grid-template-columns: 1fr 1fr; }
@@ -165,6 +208,23 @@
     .analytics-grid { grid-template-columns: 1fr; }
     .cta-section { padding: 60px 28px; }
     footer { padding: 24px 28px; flex-direction: column; gap: 8px; text-align: center; }
+  }
+
+  @media (max-width: 480px) {
+    .reach-strip { grid-template-columns: 1fr 1fr; }
+    .reach-item { padding: 16px 16px; }
+    .reach-num { font-size: 22px; }
+    .reach-label { font-size: 9px; }
+    .stat-block { padding: 28px 20px; }
+    .stat-main { font-size: 36px; }
+    .stat-platform { font-size: 9px; letter-spacing: 2px; }
+    .stat-tag { font-size: 8px; padding: 4px 8px; }
+    .formats-grid { grid-template-columns: 1fr; }
+    .hero-name { font-size: 56px; }
+    .hero { padding: 40px 20px; }
+    .section, .formats-section, .analytics-section { padding: 40px 20px; }
+    .demo-inner, .case-inner { padding: 0 20px; }
+    footer { padding: 20px; }
   }
 </style>
 </head>
@@ -342,6 +402,10 @@
           <iframe src="https://www.youtube.com/embed/PYGvtOjDR10?autoplay=1&mute=1&loop=1&playlist=PYGvtOjDR10&controls=0&rel=0&modestbranding=1&playsinline=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen loading="lazy"></iframe>
           <div class="video-overlay"></div>
         </div>
+        <a href="https://www.youtube.com/shorts/PYGvtOjDR10" target="_blank" rel="noopener" class="video-thumb-wrap">
+          <img src="https://img.youtube.com/vi/PYGvtOjDR10/maxresdefault.jpg" alt="Harbor Freight Dead Blow Hammer" loading="lazy">
+          <div class="video-play-btn"><svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="40" cy="40" r="40" fill="white" fill-opacity="0.9"/><polygon points="32,24 32,56 58,40" fill="#1A1A1A"/></svg></div>
+        </a>
       </div>
       <div class="case-content">
         <div class="case-type-tag">Product Review</div>
@@ -394,6 +458,10 @@
           <iframe src="https://www.youtube.com/embed/_xgj5TEIoBI?autoplay=1&mute=1&loop=1&playlist=_xgj5TEIoBI&controls=0&rel=0&modestbranding=1&playsinline=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen loading="lazy"></iframe>
           <div class="video-overlay"></div>
         </div>
+        <a href="https://www.youtube.com/shorts/_xgj5TEIoBI" target="_blank" rel="noopener" class="video-thumb-wrap">
+          <img src="https://img.youtube.com/vi/_xgj5TEIoBI/maxresdefault.jpg" alt="Transport Canada 2026 Boating Law Changes" loading="lazy">
+          <div class="video-play-btn"><svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="40" cy="40" r="40" fill="white" fill-opacity="0.9"/><polygon points="32,24 32,56 58,40" fill="#1A1A1A"/></svg></div>
+        </a>
         <div class="support-meta">
           <div class="support-tag">News &amp; Discovery</div>
           <div class="support-title">Transport Canada 2026 Boating Law Changes</div>
@@ -410,6 +478,10 @@
           <iframe src="https://www.youtube.com/embed/w9PUiLpCNaQ?autoplay=1&mute=1&loop=1&playlist=w9PUiLpCNaQ&controls=0&rel=0&modestbranding=1&playsinline=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen loading="lazy"></iframe>
           <div class="video-overlay"></div>
         </div>
+        <a href="https://www.youtube.com/shorts/w9PUiLpCNaQ" target="_blank" rel="noopener" class="video-thumb-wrap">
+          <img src="https://img.youtube.com/vi/w9PUiLpCNaQ/maxresdefault.jpg" alt="U-Haul Auto Transport Tutorial" loading="lazy">
+          <div class="video-play-btn"><svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="40" cy="40" r="40" fill="white" fill-opacity="0.9"/><polygon points="32,24 32,56 58,40" fill="#1A1A1A"/></svg></div>
+        </a>
         <div class="support-meta">
           <div class="support-tag">Tutorial</div>
           <div class="support-title">U-Haul Auto Transport Tutorial</div>
@@ -426,6 +498,10 @@
           <iframe src="https://www.youtube.com/embed/eFYtNrNU15Y?autoplay=1&mute=1&loop=1&playlist=eFYtNrNU15Y&controls=0&rel=0&modestbranding=1&playsinline=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen loading="lazy"></iframe>
           <div class="video-overlay"></div>
         </div>
+        <a href="https://www.youtube.com/shorts/eFYtNrNU15Y" target="_blank" rel="noopener" class="video-thumb-wrap">
+          <img src="https://img.youtube.com/vi/eFYtNrNU15Y/maxresdefault.jpg" alt="U-Haul Motorcycle Trailer" loading="lazy">
+          <div class="video-play-btn"><svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="40" cy="40" r="40" fill="white" fill-opacity="0.9"/><polygon points="32,24 32,56 58,40" fill="#1A1A1A"/></svg></div>
+        </a>
         <div class="support-meta">
           <div class="support-tag">Product Feature</div>
           <div class="support-title">U-Haul Motorcycle Trailer — Product Feature</div>

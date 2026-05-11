@@ -39,12 +39,12 @@
   .reach-label { font-size: 10px; color: rgba(255,255,255,0.75); font-weight: 600; letter-spacing: 2px; text-transform: uppercase; margin-top: 4px; }
 
   /* STATS STRIP */
-  .stats-strip { background: var(--dark); display: grid; grid-template-columns: repeat(3, 1fr); }
-  .stat-block { padding: 44px 48px; border-right: 1px solid rgba(255,255,255,0.08); }
+  .stats-strip { background: var(--dark); display: grid; grid-template-columns: repeat(3, 1fr); overflow: hidden; }
+  .stat-block { padding: 44px 48px; border-right: 1px solid rgba(255,255,255,0.08); overflow: hidden; min-width: 0; }
   .stat-block:last-child { border-right: none; }
   .stat-platform { font-size: 10px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: var(--gold-border); margin-bottom: 10px; }
   .stat-main { font-family: 'Oswald', Impact, sans-serif; font-size: 52px; font-weight: 700; line-height: 1; color: #fff; margin-bottom: 8px; letter-spacing: 1px; }
-  .stat-sub { font-size: 13px; color: rgba(255,255,255,0.5); font-weight: 300; line-height: 1.6; }
+  .stat-sub { font-size: 13px; color: rgba(255,255,255,0.5); font-weight: 300; line-height: 1.6; word-break: break-word; overflow-wrap: break-word; }
   .stat-sub strong { color: rgba(255,255,255,0.85); font-weight: 500; }
   .stat-tag { margin-top: 14px; display: inline-block; background: rgba(212,168,42,0.15); border: 1px solid rgba(212,168,42,0.4); padding: 4px 10px; font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--gold-border); }
 
@@ -195,10 +195,12 @@
     .hero { grid-template-columns: 1fr; gap: 40px; }
     .hero-photo-col { order: -1; }
     .reach-strip { grid-template-columns: 1fr 1fr; }
-    .stats-strip { grid-template-columns: 1fr; }
-    .stat-block { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); padding: 32px 28px; overflow: hidden; }
+    .stats-strip { grid-template-columns: 1fr !important; display: block !important; }
+    .stat-block { display: block; width: 100%; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); padding: 32px 24px; overflow: hidden; box-sizing: border-box; }
     .stat-main { font-size: 40px; }
-    .stat-tag { font-size: 9px; letter-spacing: 1px; display: block; width: 100%; }
+    .stat-platform { font-size: 9px; letter-spacing: 2px; word-break: break-all; }
+    .stat-tag { font-size: 9px; letter-spacing: 1px; display: block; width: 100%; box-sizing: border-box; white-space: normal; }
+    .stat-sub { font-size: 12px; }
     .demo-inner, .case-inner { padding: 0 28px; }
     .demo-grid { grid-template-columns: 1fr; gap: 32px; }
     .formats-grid { grid-template-columns: 1fr 1fr; }
